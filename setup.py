@@ -4,7 +4,7 @@
 #
 #  - git pull --rebase
 #  - update version in check_python_vuln/__init__.py
-#  - set release date in doc/changelog.rst
+#  - Update changelog in README.rst
 #  - git commit -a -m "prepare release x.y"
 #  - Remove untracked files/dirs: git clean -fdx
 #  - run tests: tox --parallel auto
@@ -14,10 +14,10 @@
 #
 # Release a new version:
 #
-#  - git tag VERSION
-#  - git push --tags
 #  - Remove untracked files/dirs: git clean -fdx
+#  - git tag VERSION
 #  - python3 setup.py sdist bdist_wheel
+#  - git push --tags
 #  - twine upload dist/*
 
 from check_python_vuln import __version__
