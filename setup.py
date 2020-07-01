@@ -47,14 +47,12 @@ def main():
     from setuptools import setup
     import os.path
 
-    with open('README.rst') as fp:
+    with open('README.rst', encodin="utf-8") as fp:
         long_description = fp.read().strip()
 
     data_dir = os.path.join('check_python_vuln', 'data')
     data_files = [os.path.join(data_dir, name)
                   for name in os.listdir(data_dir)]
-
-    console_script = 'check-python-vuln=check_python_vuln.__main__:main'
 
     options = {
         'name': 'check-python-vuln',
@@ -62,13 +60,12 @@ def main():
         'license': 'MIT license',
         'description': DESCRIPTION,
         'long_description': long_description,
-        'url': 'https://github.com/vstinner/python-security',
+        'url': 'https://github.com/vstinner/check-python-vuln',
         'author': 'Victor Stinner',
         'author_email': 'vstinner@redhat.com',
         'classifiers': CLASSIFIERS,
         'packages': ['check_python_vuln'],
         'data_files': [('my_data', data_files)],
-        'entry_points': {'console_scripts': [console_script]}
     }
     setup(**options)
 
