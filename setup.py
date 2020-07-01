@@ -43,7 +43,7 @@ def main():
         long_description = fp.read().strip()
 
     data_dir = os.path.join('check_python_vuln', 'data')
-    data_files = [os.path.join(data_dir, name)
+    data_files = [os.path.join('data', name)
                   for name in os.listdir(data_dir)]
 
     options = {
@@ -57,7 +57,7 @@ def main():
         'author_email': 'vstinner@redhat.com',
         'classifiers': CLASSIFIERS,
         'packages': ['check_python_vuln'],
-        'data_files': [('my_data', data_files)],
+        'package_data': {'check_python_vuln': data_files},
     }
     setup(**options)
 
