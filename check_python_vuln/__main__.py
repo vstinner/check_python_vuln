@@ -2,6 +2,7 @@ import os
 import subprocess
 import sys
 
+from . import __version__
 from .vulntools import TestResult, TestResultError, ERROR, VULNERABLE
 
 
@@ -80,6 +81,8 @@ class Application:
             print("CHECK ERROR :-(")
             fixed = False
 
+        print("Tested executable: %s" % sys.executable)
+        print("check_python_vuln version %s" % __version__)
         if vuln:
             print("Your Python %s has %s KNOWN VULNERABILIT%s!!!"
                   % (self.python_version, vuln, 'IES' if vuln != 1 else 'Y'))
@@ -87,7 +90,6 @@ class Application:
         if fixed:
             print("All tested vulnerabilities are fixed in your Python %s :-)"
                   % self.python_version)
-        print("Tested executable: %s" % sys.executable)
 
     def main(self):
         self.search_scripts()

@@ -3,7 +3,7 @@
 # Prepare a release:
 #
 #  - git pull --rebase
-#  - update version in setup.py, check_python_vuln/__init__.py and doc/conf.py
+#  - update version in check_python_vuln/__init__.py
 #  - set release date in doc/changelog.rst
 #  - git commit -a -m "prepare release x.y"
 #  - Remove untracked files/dirs: git clean -fdx
@@ -19,16 +19,10 @@
 #  - Remove untracked files/dirs: git clean -fdx
 #  - python3 setup.py sdist bdist_wheel
 #  - twine upload dist/*
-#
-# After the release:
-#
-#  - set version to n+1
-#  - git commit -a -m "post-release"
-#  - git push
 
-VERSION = '0.0'
+from check_python_vuln import __version__
 
-DESCRIPTION = 'Check Python vulnerabilities'
+DESCRIPTION = 'Check for Python vulnerabilities'
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
@@ -43,8 +37,9 @@ CLASSIFIERS = [
 def main():
     from setuptools import setup
     import os.path
+    import io
 
-    with open('README.rst', encodin="utf-8") as fp:
+    with io.open('README.rst', encoding="utf-8") as fp:
         long_description = fp.read().strip()
 
     data_dir = os.path.join('check_python_vuln', 'data')
@@ -53,7 +48,7 @@ def main():
 
     options = {
         'name': 'check_python_vuln',
-        'version': VERSION,
+        'version': __version__,
         'license': 'MIT license',
         'description': DESCRIPTION,
         'long_description': long_description,
