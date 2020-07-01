@@ -164,6 +164,9 @@ class Test:
     def exit_vulnerable(self, msg=None):
         self._exit(VULNERABLE, msg)
 
+    def exit_not_applicable(self, msg=None):
+        self.exit_fixed(msg)
+
     def exit_error(self, msg):
         if msg is None:
             raise ValueError("msg must not be None")

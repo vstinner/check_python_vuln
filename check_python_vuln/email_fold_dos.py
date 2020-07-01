@@ -17,7 +17,7 @@ class Check(Test):
             import email.policy   # noqa
         except ImportError:
             # Python 2.7 doesn't have the email.policy module
-            self.exit_fixed()
+            self.exit_not_applicable('no email.policy module')
 
         self.check_subprocess_denial_service(CODE)
 

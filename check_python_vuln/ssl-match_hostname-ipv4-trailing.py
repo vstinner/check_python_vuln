@@ -21,6 +21,10 @@ class Check(Test):
         self.exit_vulnerable()
 
     def run(self):
+        if not hasattr(ssl, 'match_hostname'):
+            # Python < 2.7.9
+            self.exit_not_applicable('ssl.match_hostname() not available')
+
         # socket.inet_ntoa(socket.inet_aton('127.1')) == '127.0.0.1'
         cert = {'subject': ((('commonName', 'example.com'),),),
                 'subjectAltName': (('DNS', 'example.com'),
