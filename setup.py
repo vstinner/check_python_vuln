@@ -3,14 +3,14 @@
 # Prepare a release:
 #
 #  - git pull --rebase
-#  - update version in setup.py, check-python-vuln/__init__.py and doc/conf.py
+#  - update version in setup.py, check_python_vuln/__init__.py and doc/conf.py
 #  - set release date in doc/changelog.rst
 #  - git commit -a -m "prepare release x.y"
 #  - Remove untracked files/dirs: git clean -fdx
 #  - run tests: tox --parallel auto
 #  - git push
 #  - check Travis CI status:
-#    https://travis-ci.org/vstinner/check-python-vuln
+#    https://travis-ci.org/vstinner/check_python_vuln
 #
 # Release a new version:
 #
@@ -40,9 +40,6 @@ CLASSIFIERS = [
 ]
 
 
-# put most of the code inside main() to be able to import setup.py in
-# test_tools.py, to ensure that VERSION is the same than
-# check-python-vuln.__version__.
 def main():
     from setuptools import setup
     import os.path
@@ -55,12 +52,12 @@ def main():
                   for name in os.listdir(data_dir)]
 
     options = {
-        'name': 'check-python-vuln',
+        'name': 'check_python_vuln',
         'version': VERSION,
         'license': 'MIT license',
         'description': DESCRIPTION,
         'long_description': long_description,
-        'url': 'https://github.com/vstinner/check-python-vuln',
+        'url': 'https://github.com/vstinner/check_python_vuln',
         'author': 'Victor Stinner',
         'author_email': 'vstinner@redhat.com',
         'classifiers': CLASSIFIERS,
