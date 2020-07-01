@@ -78,6 +78,7 @@ class TestResult:
     def __init__(self, script, status):
         self.script = script
         self.status = status
+        # self.url is set by from_json()
 
     @staticmethod
     def from_json(script, stdout):

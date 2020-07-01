@@ -62,11 +62,13 @@ class Application:
         else:
             result = TestResult.from_json(script, stdout)
         print("* %s" % result)
+        if result.status == VULNERABLE:
+            print("  %s" % result.url)
         return result
 
     def run_scripts(self):
         python = ' '.join(self.python)
-        print("Result for %s (%s):" % (python, self.python_version))
+        print("Check %s (Python %s):" % (python, self.python_version))
         for script in self.scripts:
             result = self.run_script(script)
             self.results.append(result)
