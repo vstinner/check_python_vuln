@@ -1,4 +1,4 @@
 include COPYING
 include MANIFEST.in
 include tox.ini
-include scripts/data/*.pem
+include check_python_vuln/data/*.pem
