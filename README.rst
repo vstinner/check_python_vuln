@@ -39,4 +39,5 @@ Command to run tests::
 Changelog
 =========
 
+* 2020.07.01.post1: Install data files and support Python 2.7 older than 2.7.9.
 * 2020.07.01: Initial release.
