@@ -1,6 +1,11 @@
 import os
 import subprocess
 import sys
+try:
+    from time import monotonic as time_monotonic
+except ImportError:
+    # Python < 3.3
+    from time import time as time_monotonic
 
 from . import __version__
 from .vulntools import TestResult, TestResultError, ERROR, VULNERABLE
@@ -68,7 +73,8 @@ class Application:
 
     def run_scripts(self):
         python = ' '.join(self.python)
-        print("Check %s (Python %s):" % (python, self.python_version))
+        print("Run %s checks on %s (Python %s):"
+              % (len(self.scripts), python, self.python_version))
         for script in self.scripts:
             result = self.run_script(script)
             self.results.append(result)
@@ -85,6 +91,8 @@ class Application:
 
         print("Tested executable: %s" % sys.executable)
         print("check_python_vuln version %s" % __version__)
+        dt = time_monotonic() - self.start_time
+        print("Time: %.1f seconds" % dt)
         if vuln:
             print("Your Python %s has %s KNOWN VULNERABILIT%s!!!"
                   % (self.python_version, vuln, 'IES' if vuln != 1 else 'Y'))
@@ -94,6 +102,7 @@ class Application:
                   % self.python_version)
 
     def main(self):
+        self.start_time = time_monotonic()
         self.search_scripts()
         self.run_scripts()
         self.display_results()
