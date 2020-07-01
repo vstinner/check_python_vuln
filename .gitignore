@@ -1,0 +1,10 @@
+# created by setup.py
+check_python_vuln.egg-info/
+MANIFEST
+build/
+dist/
+
+*.py[cod]
+*.swp
+
+.tox/
