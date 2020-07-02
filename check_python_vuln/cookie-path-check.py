@@ -9,7 +9,7 @@ from vulntools import Test
 
 
 class Check(Test):
-    NAME = "Cookie path check returns incorrect results"
+    NAME = "Cookie path check returns incorrect results (bpo-35647)"
     SLUG = "cookie-path-check"
 
     def run(self):

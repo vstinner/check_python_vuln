@@ -9,7 +9,7 @@ actual = policy.fold('Subject', '\u0105' * 12)
 
 
 class Check(Test):
-    NAME = "Email folding function Denial-of-Service"
+    NAME = "Email folding function Denial-of-Service (bpo-33529)"
     SLUG = "email-fold-dos"
 
     def run(self):

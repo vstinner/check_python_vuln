@@ -9,7 +9,7 @@ if not PY2:
 
 
 class Check(Test):
-    NAME = "email.utils.parseaddr mistakenly parse an email"
+    NAME = "email.utils.parseaddr mistakenly parse an email (CVE-2019-16056)"
     SLUG = "email-parseaddr-domain"
 
     def check_addr_spec(self):
