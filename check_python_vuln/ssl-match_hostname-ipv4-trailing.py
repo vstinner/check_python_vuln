@@ -5,7 +5,8 @@ from vulntools import Test
 
 
 class Check(Test):
-    NAME = "socket.inet_aton IP parsing issue in ssl.match_hostname (CVE-2013-2099)"
+    NAME = ("socket.inet_aton IP parsing issue in ssl.match_hostname "
+            "(CVE-2013-2099)")
     SLUG = "ssl-match_hostname-ipv4-trailing"
 
     def check(self, cert, hostname):
