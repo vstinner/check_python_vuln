@@ -10,7 +10,7 @@
 #  - run tests: tox --parallel auto
 #  - git push
 #  - check Travis CI status:
-#    https://travis-ci.org/vstinner/check_python_vuln
+#    https://travis-ci.com/github/vstinner/check_python_vuln
 #
 # Release a new version:
 #
