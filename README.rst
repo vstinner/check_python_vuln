@@ -6,9 +6,9 @@ check_python_vuln
    :alt: Latest release on the Python Cheeseshop (PyPI)
    :target: https://pypi.python.org/pypi/check_python_vuln
 
-.. image:: https://travis-ci.com/vstinner/check_python_vuln.svg?branch=master
-   :alt: Build status of check_python_vuln on Travis CI
-   :target: https://travis-ci.com/github/vstinner/check_python_vuln
+.. image:: https://github.com/vstinner/check_python_vuln/actions/workflows/build.yml/badge.svg
+   :alt: Build status of check_python_vuln on GitHub Actions
+   :target: https://github.com/vstinner/check_python_vuln/actions
 
 Check for Python vulnerabilities.
 
